@@ -1,77 +1,35 @@
 @extends('layouts.authBase')
 
-@section('content2')
+@section('content')
 
-<style>
-
-    body{
-        margin: 0;
-        font-size: .9rem;
-        font-weight: 400;
-        line-height: 1.6;
-        color: #212529;
-        text-align: left;
-        background-color: #f5f8fa;
-    }
-
-    .navbar-laravel
-    {
-        box-shadow: 0 2px 4px rgba(0,0,0,.04);
-    }
-
-    .navbar-brand , .nav-link, .my-form, .login-form
-    {
-        font-family: Raleway, sans-serif;
-    }
-
-    .my-form
-    {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-    }
-
-    .my-form .row
-    {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .login-form
-    {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-    }
-
-    .login-form .row
-    {
-        margin-left: 0;
-        margin-right: 0;
-    }
-</style>
-
-
-<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
-    <div class="container">
-        <a class="navbar-brand">Sistema Bibliotecário</a>
-    </div>
-</nav>
-
-<main class="home-form">
-    <div class="cotainer">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Home</div>
-                    <div class="card-body">
-
+    <main class="home-form">
+        <div class="cotainer">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="jumbotron">
+                        <h1 class="display-4">Hello, {{ $user->name }}!</h1>
+                        <p class="lead">Acessos:</p>
+                        <hr class="my-4">
+                        {{-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> --}}
+                        <p class="lead">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <a class="btn btn-success btn-sm btn-block"  href="{{ route('user.index') }}" role="button">
+                                    Usuário
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <a class="btn btn-primary btn-sm btn-block"  href="{{ route('menu.index') }}" role="button">
+                                    Menu
+                                </a>
+                            </div>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+        </div>
 
-</main>
+    </main>
 
 @endsection
 
