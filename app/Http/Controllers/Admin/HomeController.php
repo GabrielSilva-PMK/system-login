@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\LibraryController;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
@@ -18,11 +19,9 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         try {
-            // if (!$request->request_server) {
-            //     return redirect(route('layout'));
-            // }
-            Log::debug("ABRIR HOME");
-            return view('home');
+            $user = Auth::user();
+            // dd($user->menu);
+            return view('home', ['user' => $user]);
             // return redirect(route('home'));
         } catch (Exception $e) {
             LibraryController::recordError($e);
